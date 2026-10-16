@@ -1,0 +1,217 @@
+:root {
+  color-scheme: light;
+  --paper: #f4f2ec;
+  --ink: #171817;
+  --muted: #77776f;
+  --rule: #b9b8b0;
+  --accent: #9c2635;
+  --measure: 790px;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 82px;
+  padding: 0 clamp(28px, 7vw, 112px);
+}
+
+.topbar-rule {
+  position: absolute;
+  right: clamp(28px, 7vw, 112px);
+  bottom: 0;
+  left: clamp(28px, 7vw, 112px);
+  height: 1px;
+  background: var(--rule);
+}
+
+.language-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.language-control select {
+  min-width: 142px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 10px 34px 10px 12px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: .02em;
+  cursor: pointer;
+}
+
+.language-control select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.page-shell {
+  width: min(var(--measure), calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.article { padding: 78px 0 106px; }
+
+.article-header {
+  position: relative;
+  padding: 0 0 31px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-index {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--accent);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .17em;
+}
+
+h1 {
+  max-width: 700px;
+  margin: 0;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: .99;
+}
+
+.article-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .05em;
+}
+
+.article-meta span + span::before {
+  display: inline-block;
+  width: 17px;
+  height: 1px;
+  margin: 0 22px 4px 0;
+  background: var(--accent);
+  content: "";
+}
+
+.article-content { padding-top: 37px; }
+
+.article-content p {
+  margin: 0 0 25px;
+  font-size: 16px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.article-content p.lead {
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.article-content p.callout {
+  margin: 54px 0 30px;
+  padding: 20px 0 20px 22px;
+  border-left: 2px solid var(--accent);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.article-content p.note {
+  color: #55564f;
+  font-size: 14px;
+}
+
+.article-content p.reaction {
+  margin: 2px 0 21px;
+  color: var(--accent);
+  font-size: 15px;
+  letter-spacing: .04em;
+}
+
+.article-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 44px 0 48px;
+  border: 1px solid rgba(23, 24, 23, .13);
+}
+
+.section-break {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 67px 0 39px;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.section-break::before,
+.section-break::after {
+  height: 1px;
+  background: var(--rule);
+  content: "";
+}
+
+.section-break::before { width: 34px; }
+.section-break::after { flex: 1; }
+
+.spoken-quote {
+  margin: 11px 0 13px;
+  padding: 19px 24px;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, .22);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.spoken-quote p { margin: 0; }
+
+.article-footer {
+  margin-top: 62px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+.article-footer p { margin: 8px 0 0; }
+
+@media (max-width: 700px) {
+  .topbar { min-height: 70px; padding-inline: 22px; }
+  .topbar-rule { right: 22px; left: 22px; }
+  .page-shell { width: calc(100% - 44px); }
+  .article { padding-top: 55px; }
+  .article-content p { font-size: 15px; }
+  .article-content p.lead { font-size: 16px; }
+  .article-meta { flex-wrap: wrap; gap: 10px; }
+  .article-meta span + span::before { margin-right: 10px; }
+}
